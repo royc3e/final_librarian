@@ -1,12 +1,7 @@
 <?php
 include('../includes/db.php');
 
-// Check if user is a Student
-session_start();
-if ($_SESSION['user_type'] !== 'Student') {
-    header('Location: ../login.php');
-    exit();
-}
+
 
 // Fetch available books
 $sql = "SELECT * FROM LibraryResources WHERE ResourceID NOT IN (SELECT ResourceID FROM Transactions WHERE UserID = {$_SESSION['user_id']} AND ReturnDate IS NULL)";

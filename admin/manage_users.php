@@ -1,12 +1,7 @@
 <?php
 include('../includes/db.php');
 
-// Check if user is an Admin
-session_start();
-if ($_SESSION['user_type'] !== 'Admin') {
-    header('Location: ../login.php');
-    exit();
-}
+
 
 // Delete User
 if (isset($_GET['delete_user'])) {
